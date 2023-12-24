@@ -1,0 +1,54 @@
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+--
+-- Host: localhost    Database: example
+-- ------------------------------------------------------
+-- Server version	8.0.35
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `purchase`
+--
+
+DROP TABLE IF EXISTS `purchase`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `purchase` (
+  `purchase_date` date NOT NULL,
+  `customer_id` int NOT NULL,
+  `suu` int DEFAULT NULL,
+  PRIMARY KEY (`purchase_date`,`customer_id`),
+  KEY `fk_purchase_customer_idx` (`customer_id`),
+  CONSTRAINT `fk_purchase_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `purchase`
+--
+
+LOCK TABLES `purchase` WRITE;
+/*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
+INSERT INTO `purchase` VALUES ('2021-10-01',2,3),('2021-10-04',4,1),('2021-10-09',1,2),('2021-10-10',3,1),('2021-10-19',7,100),('2021-10-20',1,22),('2021-11-01',1,111),('2021-11-02',1,1122),('2021-11-03',2,14),('2021-11-04',8,15),('2021-11-05',3,16),('2021-11-06',4,17),('2021-11-08',9,19),('2021-11-09',10,20),('2021-11-10',7,21),('2021-11-12',1,23),('2021-11-20',5,21),('2021-11-23',4,24),('2021-11-24',7,25),('2021-11-29',14,40),('2021-12-01',3,13),('2021-12-01',8,13),('2021-12-02',1,14),('2021-12-03',4,15),('2021-12-03',7,15),('2021-12-03',11,15),('2021-12-05',2,17),('2021-12-05',7,17),('2021-12-08',9,20),('2021-12-09',10,21),('2021-12-11',8,23),('2021-12-15',8,27),('2021-12-16',8,29),('2021-12-18',8,29),('2021-12-23',8,256),('2021-12-24',11,3),('2021-12-26',7,199),('2021-12-27',15,185),('2021-12-28',7,560),('2021-12-29',6,560),('2021-12-30',9,7800),('2021-12-31',10,201),('2021-12-31',11,51),('2021-12-31',17,1234),('2021-12-31',18,560),('2021-12-31',19,1104),('2021-12-31',20,30);
+/*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-12-24 10:51:28
